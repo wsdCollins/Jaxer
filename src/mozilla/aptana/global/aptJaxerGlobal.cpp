@@ -200,7 +200,7 @@ SealObject(JSContext *cx, JSObject *obj, uintN level, JSString **exclude)
 					}
 					if (*pstr) {
 #ifdef DEBUG_SEAL
-						gJaxerLog.Log(eDEBUG, "Exclude Jaxer%s%s", debugLevelStr[level], NS_LossyConvertUTF16toASCII(JS_GetStringChars(jstr)));
+						//gJaxerLog.Log(eDEBUG, "Exclude Jaxer%s%s", debugLevelStr[level], NS_LossyConvertUTF16toASCII(JS_GetStringChars(jstr)));
 #endif
 						continue;
 					}
@@ -217,7 +217,7 @@ SealObject(JSContext *cx, JSObject *obj, uintN level, JSString **exclude)
 								pobj = JSVAL_TO_OBJECT(v);
 								if (OBJ_IS_NATIVE(pobj) && !JS_ObjectIsFunction(cx, pobj)) {
 #ifdef DEBUG_SEAL				
-									gJaxerLog.Log(eDEBUG, "Sealing  Jaxer%s%s", debugLevelStr[level], NS_LossyConvertUTF16toASCII(JS_GetStringChars(jstr)));
+									//gJaxerLog.Log(eDEBUG, "Sealing  Jaxer%s%s", debugLevelStr[level], NS_LossyConvertUTF16toASCII(JS_GetStringChars(jstr)));
 									debugProcessed = PR_TRUE;
 #endif
 									ok = SealObject(cx, pobj, level+1, nsnull);
@@ -228,7 +228,7 @@ SealObject(JSContext *cx, JSObject *obj, uintN level, JSString **exclude)
 				}
 #ifdef DEBUG_SEAL
 				if (!debugProcessed) {
-					gJaxerLog.Log(eDEBUG, "Skipping Jaxer%s%s", debugLevelStr[level], NS_LossyConvertUTF16toASCII(JS_GetStringChars(jstr)));
+					//gJaxerLog.Log(eDEBUG, "Skipping Jaxer%s%s", debugLevelStr[level], NS_LossyConvertUTF16toASCII(JS_GetStringChars(jstr)));
 				}
 #endif
 			}
