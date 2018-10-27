@@ -66,7 +66,7 @@
 #include "nsCRT.h"
 
 #include <locale.h>
-#include <freetype/tttables.h>
+#include <freetype2/tttables.h>
 
 #include <cairo.h>
 #include <cairo-ft.h>

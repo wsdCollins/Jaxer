@@ -34,10 +34,10 @@
 #define __JAXERBUILDID_H__
 
 #define JAXER_MAJOR_VERSION "1.0.3"
-#define JAXER_BUILD_NUMBER "xxxx"
-#define JAXER_BUILD_ID "1.0.3.xxxx"
+#define JAXER_BUILD_NUMBER "4549"
+#define JAXER_BUILD_ID "1.0.3.4549"
 #define JAXER_PLATFORM_BUILD_ID "20080617"
-#define JAXER_BUILD_ID_L L"1.0.3.xxxx"
+#define JAXER_BUILD_ID_L L"1.0.3.4549"
 
 #endif //__JAXERBUILDID_H__
 

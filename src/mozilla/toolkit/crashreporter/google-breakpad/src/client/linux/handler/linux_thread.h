@@ -140,16 +140,16 @@ class LinuxThread {
 
   // Get the general purpose registers of a thread.
   // The caller must get the thread pid by ListThreads.
-  bool GetRegisters(int pid, user_regs_struct *regs) const;
+  // bool GetRegisters(int pid, user_regs_struct *regs) const;
 
   // Get the floating-point registers of a thread.
   // The caller must get the thread pid by ListThreads.
-  bool GetFPRegisters(int pid, user_fpregs_struct *regs) const;
+  // bool GetFPRegisters(int pid, user_fpregs_struct *regs) const;
 
   // Get all the extended floating-point registers. May not work on all
   // machines.
   // The caller must get the thread pid by ListThreads.
-  bool GetFPXRegisters(int pid, user_fpxregs_struct *regs) const;
+  // bool GetFPXRegisters(int pid, user_fpxregs_struct *regs) const;
 
   // Get the debug registers.
   // The caller must get the thread pid by ListThreads.

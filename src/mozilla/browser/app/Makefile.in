@@ -74,7 +74,7 @@ DEFINES += -DGRE_MILESTONE=$(GRE_MILESTONE) -DGRE_BUILDID=$(GRE_BUILDID)
 
 ifdef MOZ_MEMORY
 ifneq ($(OS_ARCH),WINNT)
-LIBS += -ljemalloc
+LIBS += -ljemalloc -lX11
 endif
 endif
 

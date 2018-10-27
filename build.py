@@ -533,7 +533,7 @@ for root, dirs, files in os.walk('src/mozilla/' + ffdir + '/dist/bin'):
 print "\n  === Renaming/Removing extra stuff."
 if GetOS() == LINUX:
     print "\n   == Renaming jam/Apache22-local to jam/Apache22."
-    os.rename('jam/Apache22-local', 'jam/Apache22')
+    os.mkdir('jam/Apache22')
     shutil.copytree('src/scripts/unix', 'jam/scripts')
 #    shutil.rmtree('jam/scripts/.svn')
     os.remove('jam/StartServers.bat')

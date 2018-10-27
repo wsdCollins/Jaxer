@@ -50,7 +50,7 @@
 #include <arpa/inet.h>
 #include <sys/wait.h>
 #include "jaxerBuildId.h"
-
+#include <sys/resource.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/queue.h>
@@ -1729,13 +1729,13 @@ int main(int argc, char **argv)
     
 #if !defined(LINUX_64)
     //LINUX
-    google_breakpad::ExceptionHandler eh(
+    /*google_breakpad::ExceptionHandler eh(
          dumpDir,                              // Where to dump
          google_breakpad::BeforeDumpCallback,  // FilterCallback
          google_breakpad::AfterDumpCallback,
          NULL,                                 // callback context
          true                                  // always write a dump when exception occurs
-         );
+         );*/
 #endif
 
     // Setup log fifo
