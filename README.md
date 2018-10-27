@@ -47,7 +47,7 @@ The best way to describe it is to show an example of it working:
 
 ### Current Issues
 
-1. Document Build Process  
+1. Document Build Process  (in progress)
 2. Update Client Framework  
 3. Update Server Framework  
 4. Write tutorials  
