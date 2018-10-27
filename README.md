@@ -61,7 +61,7 @@ has originated from.
 
 ### Logo
 
-We've change the logo from an ornage Gear to a more modern vector gear bubbling off into the ether. We think this is
+We've change the logo from an orange Gear to a more modern vector gear bubbling off into the ether. We think this is
 a better match to show how the client side framework interacts and seamlessly works with the server side Javascript.
 The logo is originally from 
 [Shutterstock](https://www.shutterstock.com/image-vector/gear-pixel-logo-template-design-vector-356978525)
