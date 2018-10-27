@@ -45,6 +45,12 @@ The best way to describe it is to show an example of it working:
 </html>
 ```
 
+### Current Issues
+
+[ ] Document Build Process  
+[ ] Update Client Framework  
+[ ] Update Server Framework  
+[ ] Write tutorials  
 
 ### License
 
