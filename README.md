@@ -47,10 +47,10 @@ The best way to describe it is to show an example of it working:
 
 ### Current Issues
 
-[ ] Document Build Process  
-[ ] Update Client Framework  
-[ ] Update Server Framework  
-[ ] Write tutorials  
+1. Document Build Process  
+2. Update Client Framework  
+3. Update Server Framework  
+4. Write tutorials  
 
 ### License
 
