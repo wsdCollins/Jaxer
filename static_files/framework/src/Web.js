@@ -359,34 +359,6 @@ Web.del = function del(url, options)
 }
 
 /**
- * GET or POST data to a URL, loading the result into the window of
- * a new Jaxer.Sandbox object.
- * 
- * @alias Jaxer.Web.open
- * @param {String} url 
- * 		The URL of the page to GET or POST to. This will first be resolved by
- * 		Web.resolve().
- * @param {String|Object} [data]
- * 		The data to submit, if any. If this parameter is omitted or is null,
- * 		a GET is used; otherwise a POST is used. 
- * 		If this is a string, it should usually be a query string in a format
- * 		(name1=value1&name2=value2) suitable for a Content-Type of
- * 		'application/x-www-form-urlencoded'. If an object, its enumerable
- * 		properties will be used to construct the query string.
- * @param {Jaxer.Sandbox.OpenOptions|Object} options 
- * 		Options for finer control of how the request is made.
- * @return {Jaxer.Sandbox}
- * 		The Sandbox, which will usually have a window and document in it 
- * 		(if the request was successful and returned an HTML page)
- * @see Jaxer.Sandbox
- */
-Web.open = function open(url, data, options)
-{
-	return new Jaxer.Sandbox(url, data, options);
-}
-
-
-/**
  * An enumeration of constants for various standard HTTP methods or actions 
  * 
  * @alias Jaxer.Web.ACTIONS
