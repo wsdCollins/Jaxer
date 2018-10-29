@@ -19,12 +19,6 @@
 				background-color: #eee;
 			}
 
-			header {
-				padding: 10px 0;
-				width: 100%;
-				background-color: #2b3a42;
-			}
-
 			section {
 				width: 1024px;
 				display: block;
@@ -39,9 +33,6 @@
 
 	<body>
 
-		<header>
-		</header>
-
 		<section>
 			<h1>Hello Jaxer</h1>
 
@@ -49,7 +40,7 @@
 			If you are seeing this message, that means you have successfully 
 			installed Jaxer and are ready to start making amazing Javascript
 			applications. For documentation on the client and server side
-			API's you can goto <a href="https://jaxer.org">https://jaxer.wsdlab.com</a>.
+			API's you can goto <a href="https://jaxer.wsdlab.com">https://jaxer.wsdlab.com</a>.
 			</p>
 
 			<h2>Web Administrator</h2>
