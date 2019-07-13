@@ -1,24 +1,28 @@
-/* ***** LICENSE BLOCK *****
- * Version: GPL 3
+/******************************************************************************
  *
- * This program is Copyright (C) 2018 Web Service Development
- * This program is licensed under the GNU General Public license, version 3 (GPL).
+ * MIT License
  *
- * This program is distributed in the hope that it will be useful, but
- * AS-IS and WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE, TITLE, or
- * NONINFRINGEMENT. Redistribution, except as permitted by the GPL,
- * is prohibited.
+ * Copyright (c) 2018, 2019 Web Service Development
  *
- * You can redistribute and/or modify this program under the terms of the GPL,
- * as published by the Free Software Foundation.  You should
- * have received a copy of the GNU General Public License, Version 3 along
- * with this program; if not, write to the Free Software Foundation, Inc., 51
- * Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * Any modifications to this file must keep this entire header intact.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
  *
- * ***** END LICENSE BLOCK ***** */
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ *****************************************************************************/
 
 const Jaxer = {
 
@@ -51,32 +55,32 @@ const Jaxer = {
 
 	},
 
+	// Promise Wrapper for XMLHttpRequest
+
 	remoteAsync : function() {
 
 		return new Promise( (resolve, reject) => {
 
-			var fn = this;
-			var args = arguments;
+			let fn = this;
+			let args = Array.prototype.slice.call(arguments);
 			
 			Jaxer.sendRequest(fn, args, function(err, res) {
 				if(err) {
-					throw err;
+					return reject(err);
 				}
-				
-				resolve(res.returnValue);
 
-				// console.log(res);
+				resolve(res);
 			});
 
 		});
 
 	},
 
+	// Create form url-encoded parameters to pass to server
+
 	createQuery : function(functionName, paramsToPass) {
 
-		var parts = {};
-
-		if (paramsToPass == null) {
+		if (typeof paramsToPass === 'undefined') {
 			paramsToPass = [];
 		}
 
@@ -84,9 +88,9 @@ const Jaxer = {
 			paramsToPass = [paramsToPass];
 		}
 
-		var serializedParams = [];
+		let serializedParams = [];
 
-		for (var i = 0; i < paramsToPass.length; i++) {
+		for (let i = 0; i < paramsToPass.length; i++) {
 
 			var param = paramsToPass[i];
 			var serializedParam = JSON.stringify(param);
@@ -94,7 +98,7 @@ const Jaxer = {
 
 		}
 
-		var parts = {
+		let parts = {
 			pageSignature : Jaxer.Callback.pageSignature.toString(),
 			pageName : Jaxer.Callback.pageName,
 			callingPage : Jaxer.Callback.callingPage,
@@ -103,8 +107,8 @@ const Jaxer = {
 			uid : Date.now() + "_" + Math.round(Math.random() * 1000000)
 		};
 
-		var query = [];
-		for(var key in parts) {
+		let query = [];
+		for(let key in parts) {
 			query.push( key + "=" + encodeURIComponent(parts[key]) );
 		}
 		
@@ -112,22 +116,33 @@ const Jaxer = {
 
 	},
 
+	// Execute XML Http Request
+
 	sendRequest(fn, args, cb) {
 		
-		var query = Jaxer.createQuery(fn, args);
-		var xhr = new XMLHttpRequest();
+		let query = Jaxer.createQuery(fn, args);
+		let xhr = new XMLHttpRequest();
 		xhr.open("POST", Jaxer.Options.uri);
 		xhr.responseType = "text";
 		
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-
 		xhr.send(query);
 
-		xhr.onload = function() {
+		xhr.onload = () => {
 			
-			var response = JSON.parse(xhr.responseText);
-			cb(null, response);
+			let res;
+			try {
+				res = JSON.parse(xhr.responseText);
+			} catch(err) {
+				return cb(err, null);
+			}
+			
+			if(res.exception) {
+				return cb(res.exception.message);
+			}
+
+			cb(null, res.returnValue);
 
 		}
 
