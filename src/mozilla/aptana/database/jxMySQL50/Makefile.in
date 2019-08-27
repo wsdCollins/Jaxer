@@ -153,7 +153,7 @@ else
 EXTRA_DSO_LDOPTS += \
 		$(DIST)/lib/$(LIB_PREFIX)mozjs$(DLL_SUFFIX) \
 		$(DIST)/lib/$(LIB_PREFIX)mysqlclient.$(LIB_SUFFIX) \
-		 -lz -lm \
+		 -lz -lm -lgnutls \
 		$(NULL)
 endif
 endif

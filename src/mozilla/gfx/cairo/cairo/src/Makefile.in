@@ -205,7 +205,7 @@ EXPORTS  += cairo-glitz.h
 endif
 
 
-LOCAL_INCLUDES  += -I$(srcdir)
+LOCAL_INCLUDES  += -I$(srcdir) -I/usr/include/freetype2
 
 FORCE_STATIC_LIB = 1
 # This library is used by other shared libs in a static build
