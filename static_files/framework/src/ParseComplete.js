@@ -40,7 +40,7 @@ try
 	{
 		
 		Jaxer.__tempLoad.clearAll();
-		Jaxer.Sandbox.closeAll();
+		//Jaxer.Sandbox.closeAll();
 
 	});
 	
