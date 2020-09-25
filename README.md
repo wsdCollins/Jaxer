@@ -1,6 +1,6 @@
 # Wsd Jaxer Application Server
 
-**Abstract**
+**Abstract**  
 Jaxer is a server-side Javascript server, which is literally "Javascript on the server". Jaxer works similar to a manner of PHP in that multiple threads are created to syncronously handle works loads for calls to the server. 
 
 ![Jx Mascot](https://i.imgur.com/25MYjG9.png)
