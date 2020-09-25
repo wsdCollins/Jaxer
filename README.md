@@ -1,5 +1,6 @@
-# Jaxer
-The Javascript Application X Server
+# Wsd Jaxer Application Server
+
+![Jx Mascot](“https://i.imgur.com/tWRpg3u.png”)
 
 Jaxer is an application that allows you to write server-side Javascript code as if you were writing on the client and then call it seamlessly.
 The best way to describe it is to show an example of it working:
